@@ -204,22 +204,27 @@ return [
      * 'YourTransport.php', where 'Your' is the name of the transport.
      */
     'EmailTransport' => [
+        'gmail' => [
+            'className' => 'Smtp',
+            // The following keys are used in SMTP transports
+            'host' => 'ssl://smtp.gmail.com',
+            'port' => 465,
+            'timeout' => 30,
+            'username' => 'microblog.grace@gmail.com',
+            'password' => 'microblog2',
+        ],
         'default' => [
             'className' => MailTransport::class,
             /*
-             * The keys host, port, timeout, username, password, client and tls
-             * are used in SMTP transports
+             * The following keys are used in SMTP transports:
              */
             'host' => 'localhost',
             'port' => 25,
             'timeout' => 30,
-            /*
-             * It is recommended to set these options through your environment or app_local.php
-             */
-            //'username' => null,
-            //'password' => null,
+            'username' => null,
+            'password' => null,
             'client' => null,
-            'tls' => false,
+            'tls' => null,
             'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
         ],
     ],
@@ -237,9 +242,12 @@ return [
         'default' => [
             'transport' => 'default',
             'from' => 'you@localhost',
-            /*
-             * Will by default be set to config value of App.encoding, if that exists otherwise to UTF-8.
-             */
+            //'charset' => 'utf-8',
+            //'headerCharset' => 'utf-8',
+        ],
+        'gmail' => [
+            'transport' => 'gmail',
+            'from' => 'you@localhost',
             //'charset' => 'utf-8',
             //'headerCharset' => 'utf-8',
         ],
@@ -270,12 +278,9 @@ return [
              * the following line and set the port accordingly
              */
             //'port' => 'non_standard_port_number',
-            /*
-             * It is recommended to set these options through your environment or app_local.php
-             */
-            //'username' => 'my_app',
-            //'password' => 'secret',
-            //'database' => 'my_app',
+            'username' => 'root',
+            'password' => '',
+            'database' => 'microblog3',
             /*
              * You do not need to set this flag to use full utf-8 encoding (internal default since CakePHP 3.6).
              */
@@ -285,7 +290,7 @@ return [
             'cacheMetadata' => true,
             'log' => false,
 
-            /*
+            /**
              * Set identifier quoting to true if you are using reserved words or
              * special characters in your table or column names. Enabling this
              * setting will result in queries built using the Query Builder having
@@ -295,7 +300,7 @@ return [
              */
             'quoteIdentifiers' => false,
 
-            /*
+            /**
              * During development, if using MySQL < 5.6, uncommenting the
              * following line could boost the speed at which schema metadata is
              * fetched from the database. It can also be set directly with the
