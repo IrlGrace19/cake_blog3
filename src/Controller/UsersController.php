@@ -31,7 +31,7 @@ class UsersController extends AppController
 
     /**
      * Initialize method
-     * 
+     *
      * @return \Cake\Http\Response|null
      */
     public function initialize()
@@ -69,7 +69,7 @@ class UsersController extends AppController
 
     /**
      * Login Function 
-     *  
+     *
      * @return \Cake\Http\Response|null
      */
     public function login()
@@ -97,7 +97,7 @@ class UsersController extends AppController
 
     /**
      * Logout Function 
-     *  
+     *
      * @return \Cake\Http\Response|null
      */
     public function logout()
@@ -107,7 +107,7 @@ class UsersController extends AppController
 
     /**
      * User Registration
-     * 
+     *
      * @return \Cake\Http\Response|null
      */
     public function register()
@@ -141,7 +141,7 @@ class UsersController extends AppController
 
     /**
      * Sending email
-     * 
+     *
      * @return bool
      * @param object $user
      */
@@ -171,7 +171,7 @@ class UsersController extends AppController
 
     /**
      * Resending email
-     * 
+     *
      * @return \Cake\Http\Response|null
      * @param string|null $id User id
      */
@@ -200,7 +200,7 @@ class UsersController extends AppController
 
     /**
      * User Activation
-     * 
+     *
      * @return \Cake\Http\Response|null
      * @param string $username, string $activationCode
      */
@@ -238,7 +238,7 @@ class UsersController extends AppController
 
     /**
      * Retrieve View of Account Settings
-     * 
+     *
      * @return \Cake\Http\Response|null
      */
     public function accountSettings()
@@ -289,7 +289,7 @@ class UsersController extends AppController
 
     /**
      * Rendering User Page
-     * 
+     *
      * @return view or redirect Page
      * @param string|null $id User id
      * @throws \Cake\Http\Exception\NotFoundException
@@ -454,7 +454,7 @@ class UsersController extends AppController
 
     /**
      * Rendering Search User View
-     * 
+     *
      * @return view
      */
     public function searchUser()
