@@ -48,7 +48,7 @@ class UsersController extends AppController
 
     /**
      * Before filter unlocked Actions
-     * 
+     *
      * @return \Cake\Http\Response|null
      * @param \Cake\Event\Event $event
      */
@@ -68,7 +68,7 @@ class UsersController extends AppController
     }
 
     /**
-     * Login Function 
+     * Login Function
      *
      * @return \Cake\Http\Response|null
      */
@@ -82,7 +82,7 @@ class UsersController extends AppController
             if ($user) {
                 if ($user['deleted']) {
                     $this->Flash->error(__('Incorrect username or password.'));
-                } else if (!$user['activated']) {
+                } elseif (!$user['activated']) {
                     $this->Flash->error(__('Cannot Login. User not yet activated.'));
                 } else {
                     $this->Auth->setUser($user);
@@ -96,7 +96,7 @@ class UsersController extends AppController
     }
 
     /**
-     * Logout Function 
+     * Logout Function
      *
      * @return \Cake\Http\Response|null
      */
